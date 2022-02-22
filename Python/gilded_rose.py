@@ -7,7 +7,7 @@ class GildedRose(object):
 
     def update_quality(self):
         for item in self.items:
-            if item.name != "Good Wine" and item.name != "Backstage passes for Re:Factor" \
+            if item.name == "Good Wine" and item.name != "Backstage passes for Re:Factor" \
                     and item.name != "Backstage passes for HAXX":
                 if item.quality > 0:
                     if item.name != "B-DAWG Keychain":
