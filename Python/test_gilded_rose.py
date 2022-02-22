@@ -18,13 +18,15 @@ class GildedRoseTest(unittest.TestCase):
         items = [normal_item]
         GildedRose(items).update_quality()
         self.assertEqual(normal_item.quality,0)
-    
+        
     def test_it_never_have_to_high_quality(self):
         items_names = ["Good Wine","Backstage passes for Re:Factor","Backstage passes for HAXX"]
         items = [Item(name,2,49) for name in items_names]
         GildedRose(items).update_quality()
         for item in items:
             self.assertEqual(item.quality,50)
+    
+    
     
     def test_foo(self):
         items = [Item("foo", 0, 0)]
