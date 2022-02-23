@@ -16,14 +16,16 @@ class GildedRose(object):
             item.sell_in = item.sell_in - 1  
             #update quality statement
             if item.name == GOOD_WINE :
-                    self.increment(item)
+                self.increment(item)
             elif item.name in BACKSTAGE_PASSES:
-                       self.increment(item)
-                       if item.sell_in < 11:
-                           self.increment(item)
-                       if item.sell_in < 6:
-                           self.increment(item)
+                self.increment(item)
+                if item.sell_in < 11:
+                    self.increment(item)
+                if item.sell_in < 6:
+                        self.increment(item)
             else:
+                self.decrement(item)
+            if item.name in SMILLY_ITEMS:
                 self.decrement(item)
 
             # passed sell_in statement
@@ -32,8 +34,6 @@ class GildedRose(object):
                     self.increment(item)
                 elif item.name in BACKSTAGE_PASSES:
                         item.quality = item.quality - item.quality
-                else:
-                    self.decrement(item)
                     
     def increment(self,item):
         if item.quality < 50:
@@ -41,6 +41,8 @@ class GildedRose(object):
             
     def decrement(self,item):
         if item.quality > 0:
+            item.quality = item.quality - 1
+        if item.sell_in < 0:
             item.quality = item.quality - 1
             
 

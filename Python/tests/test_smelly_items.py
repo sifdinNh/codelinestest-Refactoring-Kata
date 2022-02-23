@@ -10,9 +10,9 @@ class SmellyItemTest(unittest.TestCase):
         for item in items:
             self.assertEqual(item.quality,0)
 
-    def test_quality_decreases_faster_after_sellby_date(self):
+    def test_quality_decreases_faster_after_sell_by_date(self):
         semlly_items = ["Duplicate Code", "Long Methods", "Ugly Variable Names"]
-        items = [Item(item, 2, 4) for item in semlly_items]
+        items = [Item(item, -1, 4) for item in semlly_items]
         GildedRose(items).update_quality()
         for item in items:
             self.assertEqual(item.quality,0)
