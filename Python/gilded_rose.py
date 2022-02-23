@@ -1,4 +1,8 @@
 # -*- coding: utf-8 -*-
+SMILLY_ITEMS = ["Duplicate Code", "Long Methods", "Ugly Variable Names"]
+BACKSTAGE_PASSES = ["Backstage passes for Re:Factor" ,"Backstage passes for HAXX"]
+GOOD_WINE = "Good Wine"
+LEGENDARY_ITEM = "B-DAWG Keychain"
 
 class GildedRose(object):
 
@@ -7,13 +11,13 @@ class GildedRose(object):
 
     def update_quality(self):
         for item in self.items:
-            if item.name == "B-DAWG Keychain":
+            if item.name == LEGENDARY_ITEM:
                 continue
             item.sell_in = item.sell_in - 1  
             #update quality statement
-            if item.name == "Good Wine" :
+            if item.name == GOOD_WINE :
                     self.increment(item)
-            elif item.name in ["Backstage passes for Re:Factor" ,"Backstage passes for HAXX"]:
+            elif item.name in BACKSTAGE_PASSES:
                        self.increment(item)
                        if item.sell_in < 11:
                            self.increment(item)
@@ -24,9 +28,9 @@ class GildedRose(object):
 
             # passed sell_in statement
             if item.sell_in < 0:
-                if item.name == "Good Wine":
+                if item.name == GOOD_WINE:
                     self.increment(item)
-                elif item.name in ["Backstage passes for Re:Factor" ,"Backstage passes for HAXX"]:
+                elif item.name in BACKSTAGE_PASSES:
                         item.quality = item.quality - item.quality
                 else:
                     self.decrement(item)
