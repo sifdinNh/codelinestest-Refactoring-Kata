@@ -10,7 +10,7 @@ class GildedRose(object):
             if item.name == "B-DAWG Keychain":
                 continue
             item.sell_in = item.sell_in - 1  
-            
+            #update quality statement
             if item.quality < 50 :
                 if item.name == "Good Wine" :
                         item.quality = item.quality + 1
@@ -24,7 +24,7 @@ class GildedRose(object):
                                item.quality = item.quality + 1
                 elif item.quality > 0:
                     item.quality = item.quality - 1
-
+            # passed sell_in statement
             if item.sell_in < 0:
                 if item.name == "Good Wine":
                     if item.quality < 50:
