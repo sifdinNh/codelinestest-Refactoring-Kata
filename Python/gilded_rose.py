@@ -9,7 +9,7 @@ class GildedRose(object):
         for item in self.items:
             if item.name == "B-DAWG Keychain":
                 continue
-            elif item.quality < 50:
+            elif item.quality < 50 :
                 if item.name == "Good Wine" :
                         item.quality = item.quality + 1
                 elif item.name in ["Backstage passes for Re:Factor" ,"Backstage passes for HAXX"]:
