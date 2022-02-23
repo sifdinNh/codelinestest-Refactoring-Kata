@@ -9,6 +9,16 @@ class GildedRose(object):
     def __init__(self, items):
         self.items = items
 
+    def increment(self,item):
+        if item.quality < 50:
+            item.quality = item.quality + 1
+            
+    def decrement(self,item):
+        if item.quality > 0:
+            item.quality = item.quality - 1
+        if item.sell_in < 0:
+            item.quality = item.quality - 1
+            
     def update_quality(self):
         for item in self.items:
             if item.name == LEGENDARY_ITEM:
@@ -35,15 +45,6 @@ class GildedRose(object):
                 elif item.name in BACKSTAGE_PASSES:
                         item.quality = item.quality - item.quality
                     
-    def increment(self,item):
-        if item.quality < 50:
-            item.quality = item.quality + 1
-            
-    def decrement(self,item):
-        if item.quality > 0:
-            item.quality = item.quality - 1
-        if item.sell_in < 0:
-            item.quality = item.quality - 1
             
 
 
